@@ -23,7 +23,7 @@ jobs:
           run: |
             python -m pip install --upgrade pip
             pip install flask
-            pip install 
+            pip install pytest
 
         - name: Run Tests
           run: |
@@ -50,6 +50,7 @@ jobs:
           uses: docker/build-push-action@v4
           with:
             context: .
+            file: ./Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
 
